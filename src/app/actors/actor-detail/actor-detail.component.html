@@ -1,0 +1,49 @@
+<div  [ngStyle]="{'background' : 'url(assets/img/bg_06.jpg)'}">
+<div class="row">
+    <div class="col-xs-12">
+      <img
+        src="./assets/img/{{actor.name}}1.jpg"
+        alt="{{ actor.name }}"
+        class="img-responsive"
+        style="max-height: 300px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ actor.name }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div
+        class="btn-group"
+        appDropdown>
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle">
+          Manage actor <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a style="cursor: pointer;" (click)="onEditActor()">Edit Actor</a></li>
+          <li><a style="cursor: pointer;" (click)="onDeleteActor()">Delete Actor</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {{ actor.description }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <li  [ngStyle]="{'background' : 'url(assets/img/bg_06.jpg)'}"
+          class="list-group-item"
+          *ngFor="let movie of actor.movies">
+          {{ movie.name }} - {{ movie.year }} <a href="{{movie.link}}">Link</a> 
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav color="accent"
+  [ngStyle]="{'background' : 'url(assets/img/bg_01.gif)'}"
+
+  #drawer 
+  class="sidenav"
+  [ngClass]="{hidden:!(isHandset$|async)}"
+   fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)"
+     >
+    <mat-toolbar [ngStyle]="{'background' : 'url(assets/img/bg_01.gif)'}" >Menu</mat-toolbar>
+    <mat-nav-list [ngStyle]="{'background' : 'url(assets/img/bg_01.gif)'}">
+    <a mat-list-item href="/actors">Actors</a>
+    <a mat-list-item href="/movie-list">Movie List</a>
+ <!--   <a mat-list-item href="/actress">Actress</a>
+    <a mat-list-item href="/contact">Contact</a>-->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar  [ngStyle]="{'background' : 'url(assets/img/bg_01.gif)'}"   >
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span></span>
+     
+      <span class="spacer">   </span>
+      <a [ngClass]="{hidden:(isHandset$|async)}" href="/actors">Actor       </a>
+      <span class="spacer">   </span>
+     <a  [ngClass]="{hidden:(isHandset$|async)}" href="/movie-list">Movie List       </a>
+      <span class="spacer">   </span>
+     <!--
+      <a [ngClass]="{hidden:(isHandset$|async)}" href="/home">Home      </a>
+      <span class="spacer">   </span>
+        <a [ngClass]="{hidden:(isHandset$|async)}"  href="/contact">Contact       </a>
+      <span class="spacer">   </span>
+      -->
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

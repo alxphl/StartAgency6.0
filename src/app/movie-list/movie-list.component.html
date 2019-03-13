@@ -1,0 +1,17 @@
+
+<div class="row">
+    <div class="col-xs-10" >
+      <app-movie-edit></app-movie-edit>
+      <hr>
+      <ul class="list-group" >
+        <a [ngStyle]="{'background' : 'url(assets/img/bg_40.jpg)'}"
+          class="list-group-item"
+          style="cursor: pointer"
+          *ngFor="let movie of movies; let i = index"
+          (click)="onEditItem(i)"
+        >
+          {{ movie.name }} ({{ movie.year }}) <a href="{{movie.link}}">Link</a>
+        </a>
+      </ul>
+    </div>
+  </div>
